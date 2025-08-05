@@ -1,28 +1,31 @@
-# Child Support Debtors Application
+# Aplicación de Deudores de Pensión Alimentaria
 
-This application is designed to manage child support debtors, allowing users to register, search, and view details of debtors in a user-friendly desktop interface. The application follows the Model-View-Controller (MVC) design pattern and utilizes object-oriented programming principles.
+Esta aplicación permite gestionar deudores de pensión alimentaria, permitiendo registrar, buscar y visualizar detalles de los deudores en una interfaz de escritorio amigable. El proyecto sigue el patrón Modelo-Vista-Controlador (MVC) y utiliza principios de programación orientada a objetos.
 
-## Features
+## Características
 
-- Register debtors with essential information including:
-  - Last names
-  - First names
-  - Document type
-  - Document number
-  - Registration date
-  - Judicial file number
-  - Monthly pension
-  - Amount owed
-  - Full name of the claimant
+- Registro de deudores con información esencial:
+  - Apellido paterno
+  - Apellido materno
+  - Nombres
+  - Tipo de documento (DNI, Carné de Extranjería, Pasaporte, Otros)
+  - Número de documento
+  - Fecha de registro (con selector de fecha)
+  - Número de expediente judicial
+  - Pensión mensual
+  - Importe adeudado
+  - Nombre completo del demandante
 
-- Search for debtors by:
-  - Names and surnames
-  - Document type and number
-  - Date range of registration
+- Búsqueda de deudores por:
+  1. Nombres y apellidos (al menos uno requerido)
+  2. Tipo y número de documento (tipo de documento con combobox, validación de número)
+  3. Periodo de fechas (fecha de inicio y fin con datepicker, validación de rango y límite de fecha actual)
 
-- Display a list of debtors and detailed information for each debtor.
+- Visualización de la lista de deudores y detalle individual (detalle no editable).
 
-## Project Structure
+- Interfaz visual mejorada con paleta de colores basada en `#9a1413` y soporte para temas modernos usando `ttkthemes`.
+
+## Estructura del Proyecto
 
 ```
 child-support-debtors-app
@@ -42,36 +45,32 @@ child-support-debtors-app
 └── README.md
 ```
 
-## Installation
+## Instalación
 
-1. Clone the repository:
+1. Clona el repositorio:
    ```
-   git clone <repository-url>
+   git clone git@github.com:milagroslujanc/REDAM_Grupo3.git
    ```
 
-2. Navigate to the project directory:
+2. Ingresa al directorio del proyecto:
    ```
    cd child-support-debtors-app
    ```
 
-3. Install the required dependencies:
+3. Instala las dependencias requeridas:
    ```
    pip install -r requirements.txt
    ```
 
-## Usage
+## Uso
 
-To run the application, execute the following command in the terminal:
-```
+Para ejecutar la aplicación, usa el siguiente comando en la terminal:
+
 python src/app.py
-```
 
-Follow the on-screen instructions to register and manage child support debtors.
 
-## Contributing
+Sigue las instrucciones en pantalla para registrar y gestionar deudores de pensión alimentaria.
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
+## Licencia
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
+Este proyecto está licenciado bajo MIT. Consulta el archivo LICENSE para más detalles.
