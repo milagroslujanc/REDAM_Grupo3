@@ -1,0 +1,48 @@
+dao en python en bd con mysql de un aplicativo de deuda alimentaria donde se registra un deudor de pension de alimentos, los datos son:
+
+apellido paterno
+apellido materno
+nombres
+tipo documento
+nro documento
+fecha de registro de denuncia 
+nro de expediente judicial
+pension mensual
+importe adeudado
+nombre completo de demandante
+
+considera que para esto se debe de tener programacion orientada a objetos en python.
+
+considerar patron mvc y considerar que la informacion se grabará en archivos de texto plano
+
+considerar que esto sera manejado como un app de escritorio
+
+las consultas que se deben permitir es buscar a deudores por: 
+a. nombres y apellidos
+b. tipo y nro de documento
+c. periodo de inicio/fin(* El rango de periodos corresponde a la fecha en que se registro al deudor alimentario moroso.)
+
+la lista de deudores debe de tener los datos:
+
+a. AP PATERNO
+B. AP MATERNO
+C. NOMBRES
+D. TIPO DOCUMENTO
+E. NRO DOCUMENTO
+F. FEHCA DE REGISTRO
+
+EL DETALLE DE LOS DEUDORES DEBE TENER LOS DATOS ADICIONALES PREVIAMENTE MENCIONADOS 
+
+
+apellido paterno
+apellido materno
+nombres
+tipo documento
+nro documento
+fecha de registro de denuncia 
+nro de expediente judicial
+pension mensual
+importe adeudado
+nombre completo de demandante
+
+

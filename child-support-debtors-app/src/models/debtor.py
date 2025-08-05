@@ -1,6 +1,17 @@
 class Debtor:
-    def __init__(self, apellido_paterno, apellido_materno, nombres, tipo_documento, nro_documento,
-                 fecha_registro, nro_expediente, pension_mensual, importe_adeudado, nombre_completo_demandante):
+    def __init__(
+        self,
+        apellido_paterno,
+        apellido_materno,
+        nombres,
+        tipo_documento,
+        nro_documento,
+        fecha_registro,
+        nro_expediente,
+        pension_mensual,
+        importe_adeudado,
+        nombre_demandante
+    ):
         self.apellido_paterno = apellido_paterno
         self.apellido_materno = apellido_materno
         self.nombres = nombres
@@ -10,11 +21,27 @@ class Debtor:
         self.nro_expediente = nro_expediente
         self.pension_mensual = pension_mensual
         self.importe_adeudado = importe_adeudado
-        self.nombre_completo_demandante = nombre_completo_demandante
+        self.nombre_demandante = nombre_demandante
 
-    def __str__(self):
-        return (f"Deudor: {self.apellido_paterno} {self.apellido_materno}, {self.nombres}\n"
-                f"Tipo Documento: {self.tipo_documento}, Nro Documento: {self.nro_documento}\n"
-                f"Fecha de Registro: {self.fecha_registro}, Nro Expediente: {self.nro_expediente}\n"
-                f"Pensión Mensual: {self.pension_mensual}, Importe Adeudado: {self.importe_adeudado}\n"
-                f"Demandante: {self.nombre_completo_demandante}")
+class DebtorModel:
+    def __init__(self):
+        self.debtors = []
+
+    def add_debtor(self, debtor):
+        self.debtors.append(debtor)
+
+    def get_debtors(self):
+        return self.debtors
+
+    def find_debtor_by_document(self, nro_documento):
+        for debtor in self.debtors:
+            if debtor.nro_documento == nro_documento:
+                return debtor
+        return None
+
+    def remove_debtor(self, nro_documento):
+        self.debtors = [d for d in self.debtors if d.nro_documento != nro_documento]
+
+    def clear_debtors(self):
+        self.debtors.clear()
+
