@@ -15,6 +15,7 @@ def validar_login():
     tk.Label(login_win, text="Contraseña:", font=("Arial", 12, "bold"), bg="#fff", fg="#9a1413", height=2).pack(pady=5)
     password_entry = tk.Entry(login_win, show="*", font=("Arial", 12), width=22)
     password_entry.pack(pady=5)
+    result = {'success': False}
 
     def check_login():
         usuario = usuario_entry.get().strip()
@@ -24,16 +25,18 @@ def validar_login():
                 for line in f:
                     parts = line.strip().split(",")
                     if len(parts) == 2 and usuario == parts[0] and password == parts[1]:
+                        result['success'] = True
                         login_win.destroy()
-                        return True
+                        return
             messagebox.showerror("Error", "Usuario o contraseña incorrectos.")
         except FileNotFoundError:
             messagebox.showerror("Error", "Archivo de usuarios no encontrado en: usuarios.txt")
-        return False
 
     tk.Button(login_win, text="Ingresar", command=check_login, font=("Arial", 12, "bold"), bg="#9a1413", fg="white", height=2).pack(pady=10, ipadx=10, ipady=5)
     login_win.configure(bg="#fff")
+    login_win.protocol("WM_DELETE_WINDOW", login_win.destroy)  # Permite cerrar la ventana
     login_win.mainloop()
+    return result['success']
 
 class MainAdminView:
     def __init__(self, controller):
@@ -42,7 +45,9 @@ class MainAdminView:
         self.selected_debtor = None
 
         # Login antes de mostrar el panel
-        validar_login()
+        if not validar_login():
+            # Si el login falla o se cierra, no mostrar el panel
+            return
 
         self.root = tk.Tk()
         self.root.title("PANEL ADMINISTRADOR")
