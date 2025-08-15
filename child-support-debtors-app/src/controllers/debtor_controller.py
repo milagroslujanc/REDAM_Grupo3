@@ -147,3 +147,36 @@ class DebtorController:
             except Exception:
                 continue
         return filtered
+
+    def edit_debtor(self, nro_documento, new_data):
+        debtors = self.storage_service.load_debtors()
+        updated = False
+        for debtor in debtors:
+            if debtor.nro_documento == nro_documento:
+                # Actualiza los campos del deudor
+                debtor.apellido_paterno = new_data["Apellido Paterno"]
+                debtor.apellido_materno = new_data["Apellido Materno"]
+                debtor.nombres = new_data["Nombres"]
+                debtor.tipo_documento = new_data["Tipo Documento"]
+                debtor.nro_documento = new_data["Nro Documento"]
+                debtor.fecha_registro = new_data["Fecha Registro"]
+                debtor.nro_expediente = new_data["Nro Expediente Judicial"]
+                debtor.pension_mensual = new_data["Pensión Mensual"]
+                debtor.importe_adeudado = new_data["Importe Adeudado"]
+                debtor.nombre_demandante = new_data["Demandante"]
+                # Si tienes campo de última modificación:
+                if "Última Modificación" in new_data:
+                    debtor.ultima_modificacion = new_data["Última Modificación"]
+                updated = True
+                break
+        if updated:
+            # Guarda la lista actualizada
+            self.storage_service.save_all_debtors(debtors)
+        return updated
+
+    def delete_debtor(self, nro_documento):
+        debtors = self.storage_service.load_debtors()
+        # Filtra todos los deudores excepto el que quieres eliminar
+        new_debtors = [debtor for debtor in debtors if debtor.nro_documento != nro_documento]
+        self.storage_service.save_all_debtors(new_debtors)
+        return True

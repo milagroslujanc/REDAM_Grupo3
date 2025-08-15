@@ -1,17 +1,7 @@
 class Debtor:
-    def __init__(
-        self,
-        apellido_paterno,
-        apellido_materno,
-        nombres,
-        tipo_documento,
-        nro_documento,
-        fecha_registro,
-        nro_expediente,
-        pension_mensual,
-        importe_adeudado,
-        nombre_demandante
-    ):
+    def __init__(self, apellido_paterno, apellido_materno, nombres, tipo_documento, nro_documento,
+                 fecha_registro, nro_expediente, pension_mensual, importe_adeudado, nombre_demandante,
+                 ultima_modificacion=None):
         self.apellido_paterno = apellido_paterno
         self.apellido_materno = apellido_materno
         self.nombres = nombres
@@ -22,6 +12,7 @@ class Debtor:
         self.pension_mensual = pension_mensual
         self.importe_adeudado = importe_adeudado
         self.nombre_demandante = nombre_demandante
+        self.ultima_modificacion = ultima_modificacion
 
 class DebtorModel:
     def __init__(self):
