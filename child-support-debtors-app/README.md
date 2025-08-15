@@ -30,7 +30,7 @@ Esta aplicación permite gestionar deudores de pensión alimentaria, permitiendo
 ```
 child-support-debtors-app
 ├── src
-│   ├── models
+│   ├── models - 
 │   │   └── debtor.py
 │   ├── views
 │   │   └── main_view.py

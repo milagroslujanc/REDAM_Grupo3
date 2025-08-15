@@ -92,6 +92,8 @@ class MainView:
             ))
 
     def handle_search_btn(self):
+        print("Botón de búsqueda presionado")
+        print("Campos actuales:", self.search_fields)
         tipo = self.search_type.get()
         if tipo == 1:
             ap_paterno = self.search_fields["ap_paterno"].get().strip()
